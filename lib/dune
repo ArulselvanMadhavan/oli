@@ -1,0 +1,5 @@
+(library
+ (name oli)
+ (libraries bonsai_term core)
+ (preprocess
+  (pps ppx_jane)))

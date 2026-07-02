@@ -1,0 +1,15 @@
+---
+description: Initialize opam with the project OPAMROOT before OCaml commands
+alwaysApply: true
+---
+
+# Opam environment
+
+Before running any `opam`, `ocaml`, `dune`, or other OCaml toolchain commands in this project, initialize the environment with:
+
+```bash
+export OPAMROOT="/lm/users/arul/.opam"
+eval "$(opam env)"
+```
+
+Use this in shell sessions and when building, testing, or installing dependencies for this project.
