@@ -27,6 +27,7 @@
   bonsai_term
   core
   core_unix
+  notty-community
   ppx_jane
   (odoc :with-doc))
  (tags

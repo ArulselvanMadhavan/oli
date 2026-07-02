@@ -1,5 +1,5 @@
 (library
  (name oli)
- (libraries bonsai_term core)
+ (libraries bonsai_term core core_unix notty-community)
  (preprocess
   (pps ppx_jane)))
