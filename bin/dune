@@ -1,6 +1,5 @@
 (executable
  (public_name oli)
- (name main)
- (libraries async bonsai bonsai_term core core_unix.command_unix oli)
- (preprocess
-  (pps ppx_jane bonsai.ppx_bonsai)))
+ (package oli)
+ (name oli)
+ (libraries oli core_unix.command_unix))

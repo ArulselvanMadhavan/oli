@@ -2,7 +2,10 @@ open! Core
 open Notty
 open Bonsai_term
 
-external attr_to_view_attr : A.t -> Attr.t = "%identity"
+module Attr = struct
+  (** [Bonsai_term.Attr.t] is [Notty.A.t] in [bonsai_term]. *)
+  external to_view : A.t -> Attr.t = "%identity"
+end
 
 let rec row_to_view = function
   | Operation.End -> View.none
@@ -13,7 +16,7 @@ let rec row_to_view = function
       ]
   | Text (attr, text, rest) ->
     View.hcat
-      [ View.text ~attrs:[ attr_to_view_attr attr ] (Text.to_string text)
+      [ View.text ~attrs:[ Attr.to_view attr ] (Text.to_string text)
       ; row_to_view rest
       ]
 ;;

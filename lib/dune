@@ -1,5 +1,14 @@
 (library
  (name oli)
- (libraries bonsai_term core core_unix notty-community)
+ (libraries async bonsai bonsai_term core core_unix.command_unix notty-community)
  (preprocess
-  (pps ppx_jane)))
+  (pps ppx_jane bonsai.ppx_bonsai)))
+
+(rule
+ (target project_name_config.ml)
+ (deps
+  ../dune-project)
+ (action
+  (with-stdout-to %{target}
+   (bash
+    "printf '(** Generated from dune-project. Do not edit. *)\nlet identifier = \"%s\"\n' \"$(awk '/^\\(name / {gsub(/[()]/,\"\",$2); print $2; exit}' %{dep:../dune-project})\""))))

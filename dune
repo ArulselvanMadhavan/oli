@@ -1,0 +1,4 @@
+(rule
+ (alias run)
+ (deps (package oli))
+ (action (run %{exe:oli})))
