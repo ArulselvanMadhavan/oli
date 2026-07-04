@@ -10,5 +10,8 @@ val create
 (** A full-width title bar built with [Notty]. *)
 val view : width:Width.t -> t -> Bonsai_term.View.t
 
+(** Height of the title bar view for [dimensions]. *)
+val height : config:t -> dimensions:Bonsai_term.Dimensions.t Bonsai.t -> int Bonsai.t
+
 (** The underlying [Notty] image for the title bar. *)
 val image : width:Width.t -> t -> Notty.I.t

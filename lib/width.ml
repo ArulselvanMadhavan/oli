@@ -8,4 +8,10 @@ let of_int width =
   else Ok width
 ;;
 
+let of_dimensions_exn (dimensions : Bonsai_term.Dimensions.t) =
+  match of_int dimensions.width with
+  | Ok width -> width
+  | Error msg -> failwith msg
+;;
+
 let to_int t = t

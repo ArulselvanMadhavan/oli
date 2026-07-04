@@ -33,3 +33,10 @@ let image ~width (bar : t) =
 let view ~width bar =
   Notty_view.of_image (image ~width bar)
 ;;
+
+let height ~config ~dimensions =
+  let open Bonsai.Let_syntax in
+  let%arr dimensions in
+  let width = Width.of_dimensions_exn dimensions in
+  Bonsai_term.View.height (view ~width config)
+;;
